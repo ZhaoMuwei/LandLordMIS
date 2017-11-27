@@ -3,21 +3,33 @@ import PropTypes from 'prop-types';
 import {Form, Input, Button, Icon} from 'antd';
 
 class Login extends Component {
-    static propTypes = {
-
+    static defaultProps = {
+        onSuccess() {},
+        onError() {}
     }
 
-    handleSubmit = (evt) => {
+    static propTypes = {
+        onSuccess: PropTypes.func,
+        onError: PropTypes.fucn
+    }
+
+    handleSubmit = evt => {
         evt.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields(async (err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                // fetch('TODO', {
-                //     method: 'POST',
-                //     credentials: 'include',
-                //     cache: 'no-cache',
-                //     body: values
-                // }).then(response => response.json());
+
+                const headers = new Headers({
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                });
+                const response = await fetch('http://103.72.145.118:80/login', {
+                    method: 'POST',
+                    headers,
+                    body: JSON.stringify(values),
+                    mode: 'cors',
+                    credentials: 'same-origin'
+                });
+                debugger;
             }
         });
     }
@@ -30,7 +42,7 @@ class Login extends Component {
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
                     {
-                        getFieldDecorator('userName', {
+                        getFieldDecorator('UserName', {
                             rules: [{required: true, message: 'Please input your username!'}],
                         })(<Input prefix={<Icon type="user" style={{fontSize: 13}} />} placeholder="Username" />)
                     }
@@ -38,7 +50,7 @@ class Login extends Component {
 
                 <FormItem>
                     {
-                        getFieldDecorator('password', {
+                        getFieldDecorator('Password', {
                             rules: [{required: true, message: 'Please input your Password!'}],
                         })(<Input prefix={<Icon type="lock" style={{fontSize: 13}} />} type="password" placeholder="Password" />)
                     }

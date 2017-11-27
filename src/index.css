@@ -6,7 +6,7 @@ body {
     font-family: sans-serif;
 }
 
-.login-wrapper {
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body {
     background-size: 100%;
 }
 
-.login-wrapper .login-content {
+.wrapper .content {
     width: 22%;
     min-width: 270px;
     max-width: 370px;
@@ -27,7 +27,7 @@ body {
 }
 
 
-.login-wrapper .login-content h2 {
+.wrapper .content h2 {
     font-size: 2em;
     margin-bottom: 20px;
 }
