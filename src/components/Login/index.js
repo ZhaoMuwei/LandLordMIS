@@ -29,7 +29,6 @@ class Login extends Component {
                     mode: 'cors',
                     credentials: 'same-origin'
                 });
-                debugger;
             }
         });
     }
