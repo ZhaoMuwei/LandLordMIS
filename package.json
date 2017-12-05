@@ -11,8 +11,12 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
-    "antd": "^2.13.10",
+    "antd": "3.0.x",
+    "axios": "0.17.x",
+    "js-cookie": "^2.2.0",
     "normalize.css": "^7.0.0",
+    "prop-types": "^15.6.0",
+    "qs": "^6.5.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-helmet": "^5.2.0",
