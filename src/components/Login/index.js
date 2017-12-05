@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import formurlencoded from 'form-urlencoded';
+import qs from 'qs';
 import Cookies from 'js-cookie';
 import {Form, Input, Button, Icon} from 'antd';
 
@@ -25,7 +25,7 @@ class Login extends Component {
                 let response = await fetch('http://103.72.145.118:80/login', {
                     method: 'POST',
                     headers,
-                    body: formurlencoded(values),
+                    body: qs.stringify(values),
                     mode: 'cors',
                 });
 
