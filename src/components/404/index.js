@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * @file 404
  * @author zhaomuwei

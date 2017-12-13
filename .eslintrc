@@ -24,6 +24,8 @@
       "arrow-parens": [1, "as-needed", { "requireForBlockBody": false }],
       "valid-jsdoc": [1, {"requireReturn": false, "matchDescription": ".+", "requireParamDescription": true, "requireReturnDescription": true}],
       "no-console": [1, {"allow": ["warn", "assert"]}],
-      "import/no-extraneous-dependencies": [2, {"devDependencies": true}]
+      "import/no-extraneous-dependencies": [2, {"devDependencies": true}],
+      "max-len": [1, {"code": 120}],
+      "object-curly-newline": [0]
   }
 }

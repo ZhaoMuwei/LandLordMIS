@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import qs from 'qs';
 import Cookies from 'js-cookie';
 import {Form, Input, Button, Icon} from 'antd';
+import './style.css';
 
 class Login extends Component {
     static defaultProps = {
@@ -54,7 +55,7 @@ class Login extends Component {
         const FormItem = Form.Item;
 
         return (
-            <div>
+            <div className="login-wrapper">
                 <h1 style={{marginBottom: 15}}>Hi</h1>
                 <Form onSubmit={this.handleSubmit} className="login-form">
                     <FormItem>
