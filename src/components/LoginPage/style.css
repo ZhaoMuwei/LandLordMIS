@@ -1,0 +1,40 @@
+.LoginPage {
+    width: 270px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+
+.LoginPage--middle-align > * {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 28px;
+}
+
+.LoginPage__heading {
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.LoginPage__subheading {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.LoginPage__form {
+
+}
+
+.LoginPage__footer {
+    color: #aaa;
+    font-size: 12px;
+}
+
+/* HACK: styles of antd form error tips */
+.LoginPage .ant-form-explain {
+    text-align: left;
+    padding-left: 1px;
+}

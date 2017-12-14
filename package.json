@@ -9,7 +9,11 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "flow": "flow"
+    "flow": "flow",
+    "server": "json-server ./mock/index.js --config ./mock/config.json --routes ./mock/routes.json --watch"
+  },
+  "proxy": {
+    "/api": "http://localhost:5000"
   },
   "dependencies": {
     "antd": "3.0.x",
@@ -34,6 +38,8 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0"
+    "eslint-plugin-react": "^7.4.0",
+    "http-proxy-middleware": "^0.17.4",
+    "json-server": "^0.12.1"
   }
 }
