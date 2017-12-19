@@ -1,0 +1,17 @@
+/**
+ * @file COMMON Styles
+ * @author ZhaoMuwei
+ */
+
+/* colors */
+:root {
+    
+}
+
+/* absolute centering */
+.COMMON-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

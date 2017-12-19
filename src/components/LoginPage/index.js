@@ -26,7 +26,7 @@ export default class LoginPage extends Component {
 
     render() {
         return (
-            <div className="LoginPage LoginPage--middle-align">
+            <div className="COMMON-center LoginPage LoginPage--middle-align">
                 <h1 className="LoginPage__heading">金管家</h1>
                 <h3 className="LoginPage__subheading">尽量为您服务吧</h3>
                 <div className="LoginPage__form">

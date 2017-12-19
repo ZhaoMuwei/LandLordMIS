@@ -13,7 +13,9 @@
     "server": "json-server ./mock/index.js --config ./mock/config.json --routes ./mock/routes.json --watch"
   },
   "proxy": {
-    "/api": "http://localhost:5000"
+    "/api": {
+        "target": "http://localhost:5000"
+    }
   },
   "dependencies": {
     "antd": "3.0.x",
