@@ -14,15 +14,15 @@
   },
   "proxy": {
     "/api": {
-        "target": "http://localhost:5000"
+      "target": "http://localhost:5000"
     }
   },
   "dependencies": {
+    "ant-design-pro": "0.x",
     "antd": "3.0.x",
     "axios": "0.17.x",
     "flow-bin": "^0.60.1",
     "js-cookie": "^2.2.0",
-    "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
     "qs": "^6.5.1",
     "react": "^16.1.1",

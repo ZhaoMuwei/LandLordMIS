@@ -3,43 +3,12 @@
     height: 1px;  /* HACK */
 }
 
-.BasePage__sider {
-    width: 200px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: scroll;
-    z-index: 2;
-    background-color: #001529;
+.BasePage__sider * {
+    user-select: none;
 }
 
-.BasePage__sider--collapsed {
-    width: 80px;
-}
-
-.BasePage__main {
-    margin-left: 200px;
-    min-height: 100%;
-    position: relative;
-    z-index: 1;
-    background-color: lightgray;
-}
-
-.BasePage__header {
-    height: 30px;
-    background-color: #fff;
-}
-
-.BasePage__content {
-    margin: 10px;
-    background-color: #fff;
-}
-
-.BasePage__footer {
-    height: 30px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 10px;
+.BasePage__logo {
+    height: 32px;
+    margin: 16px;
+    background-color: rgba(255, 255, 255, .2);
 }

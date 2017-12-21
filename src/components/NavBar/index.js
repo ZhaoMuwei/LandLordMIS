@@ -10,7 +10,6 @@ export default class NavBar extends React.Component {
     static defaultProps = {
         currentSelectedKey: 'room-list',
         onClick: false,
-        isCollapsed: false,
     }
 
     static propTypes = {
@@ -19,7 +18,6 @@ export default class NavBar extends React.Component {
             PropTypes.func,
             PropTypes.bool,
         ]),
-        isCollapsed: PropTypes.bool,
     }
 
     state = {
@@ -44,7 +42,6 @@ export default class NavBar extends React.Component {
 
     render() {
         const {currentSelectedKey} = this.state;
-        const {isCollapsed} = this.props;
 
         return (
             <Menu
@@ -52,7 +49,6 @@ export default class NavBar extends React.Component {
                 defaultOpenKeys={['room']}
                 defaultSelectedKeys={[currentSelectedKey]}
                 selectedKeys={[currentSelectedKey]}
-                inlineCollapsed={isCollapsed}
                 theme="dark"
                 inlineIndent={26}
                 onClick={this.handleClick}

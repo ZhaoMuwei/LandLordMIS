@@ -5,10 +5,13 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {Layout} from 'antd';
 import NavBar from '../../components/NavBar';
-import Button from '../../components/Button';
-import Icon from '../../components/Icon';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import './style.css';
+
+const {Sider, Content} = Layout;
 
 export default class BasePage extends Component {
     static defaultProps = {
@@ -17,40 +20,69 @@ export default class BasePage extends Component {
 
     static propTypes = {
         children: PropTypes.node,
+        title: PropTypes.string.isRequired,
     }
 
     state = {
         isCollapsed: false,
     }
 
-    toggleCollapsed = evt => {
-        this.setState(prevState => ({
-            isCollapsed: !prevState.isCollapsed
-        }));
+    handleCollapse = isCollapsed => {
+        this.setState({isCollapsed});
     }
 
     render() {
         const {isCollapsed} = this.state;
-        const {children} = this.props;
+        const {children, title} = this.props;
 
         return (
-            <section className="BasePage">
-                {/* // nav bar 放到页面上方 */}
-                <section
-                    className={`BasePage__sider ${isCollapsed ? 'BasePage__sider--collapsed' : ''}`}
+            // Use inline styles in order to override Antd built-in styles.
+            <Layout className="BasePage">
+                <Sider
+                    width={170}
+                    collapsible
+                    collapsed={isCollapsed}
+                    onCollapse={this.handleCollapse}
+                    className="BasePage__sider"
+                    style={{
+                        overflowX: 'hidden',
+                        overflowY: 'scroll',
+                    }}
                 >
-                    <NavBar isCollapsed={isCollapsed} />
-                    <Button type="primary" onClick={this.toggleCollapsed}>
-                        <Icon type={isCollapsed ? 'menu-unfold' : 'menu-fold'} />
-                    </Button>
-                </section>
+                    <div className="BasePage__logo" />
+                    <NavBar />
+                </Sider>
 
-                <section className="BasePage__main">
-                    <header className="BasePage__header">header</header>
-                    <section className="BasePage__content">{children}</section>
-                    <footer className="BasePage__footer">footer</footer>
-                </section>
-            </section>
+                <Layout>
+                    <Layout.Header
+                        style={{
+                            height: 'unset',
+                            padding: '3px 20px',
+                            backgroundColor: '#FFF',
+                        }}
+                    >
+                        <Header title={title} />
+                    </Layout.Header>
+
+                    <Content
+                        style={{
+                            padding: '20px',
+                            margin: '19px', // 与Header,Footer视觉对齐
+                            backgroundColor: '#FFF',
+                        }}
+                    >
+                        {children}
+                    </Content>
+
+                    <Layout.Footer
+                        style={{
+                            padding: '0 20px',
+                        }}
+                    >
+                        <Footer />
+                    </Layout.Footer>
+                </Layout>
+            </Layout>
         );
     }
 }
