@@ -16,7 +16,7 @@ export default class NavBar extends React.Component {
     static propTypes = {
         width: PropTypes.number,
         currentSelectedKey: PropTypes.string,
-        onClick: PropTypes.oneOf([
+        onClick: PropTypes.oneOfType([
             PropTypes.func,
             PropTypes.bool,
         ]),

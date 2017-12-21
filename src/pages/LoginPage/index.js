@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Login from '../Login';
+import Login from '../../components/Login';
 import './style.css';
 
 export default class LoginPage extends Component {

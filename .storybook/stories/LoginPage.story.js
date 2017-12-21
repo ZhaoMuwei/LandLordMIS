@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {storiesOf} from '@storybook/react';
-import LoginPage from '../../src/components/LoginPage';
+import LoginPage from '../../src/pages/LoginPage';
 import Login from '../../src/components/Login';
 import '../../src/utils/css/common.css';
 
