@@ -8,18 +8,18 @@ const {SubMenu, Item} = Menu;
 
 export default class NavBar extends React.Component {
     static defaultProps = {
-        width: 200,
         currentSelectedKey: 'room-list',
         onClick: false,
+        isCollapsed: false,
     }
 
     static propTypes = {
-        width: PropTypes.number,
         currentSelectedKey: PropTypes.string,
         onClick: PropTypes.oneOfType([
             PropTypes.func,
             PropTypes.bool,
         ]),
+        isCollapsed: PropTypes.bool,
     }
 
     state = {
@@ -43,17 +43,16 @@ export default class NavBar extends React.Component {
     }
 
     render() {
-        const {width} = this.props;
         const {currentSelectedKey} = this.state;
+        const {isCollapsed} = this.props;
 
         return (
             <Menu
                 mode="inline"
-                style={{width}}
                 defaultOpenKeys={['room']}
                 defaultSelectedKeys={[currentSelectedKey]}
                 selectedKeys={[currentSelectedKey]}
-                inlineCollapsed={false}
+                inlineCollapsed={isCollapsed}
                 theme="dark"
                 inlineIndent={26}
                 onClick={this.handleClick}
@@ -61,7 +60,7 @@ export default class NavBar extends React.Component {
             >
                 {
                     subMenus.map(({key, title, icon, children}) => (
-                        <SubMenu key={key} title={(<span><Icon type={icon} /> {title}</span>)}>
+                        <SubMenu key={key} title={(<span><Icon type={icon} /> <span>{title}</span></span>)}>
                             {
                                 children.length > 0 && children.map(({key: keyChild, title: titleChild}) => (
                                     <Item key={keyChild}>{titleChild}</Item>
