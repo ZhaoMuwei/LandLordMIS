@@ -5,3 +5,9 @@ cache:
   yarn: true
   directories:
   - node_modules
+notifications:
+  email:
+    recipients:
+      - qwxy9638@gmail.com
+    on_success: change
+    on_failure: always
