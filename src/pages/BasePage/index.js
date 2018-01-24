@@ -21,6 +21,8 @@ export default class BasePage extends Component {
     static propTypes = {
         children: PropTypes.node,
         title: PropTypes.string.isRequired,
+        navBarGroup: PropTypes.string.isRequired,
+        navBarKey: PropTypes.string.isRequired,
     }
 
     state = {
@@ -33,7 +35,7 @@ export default class BasePage extends Component {
 
     render() {
         const {isCollapsed} = this.state;
-        const {children, title} = this.props;
+        const {children, title, navBarGroup, navBarKey} = this.props;
 
         return (
             // Use inline styles in order to override Antd built-in styles.
@@ -50,7 +52,7 @@ export default class BasePage extends Component {
                     }}
                 >
                     <div className="BasePage__logo" />
-                    <NavBar />
+                    <NavBar currentGroup={navBarGroup} currentKey={navBarKey} />
                 </Sider>
 
                 <Layout>

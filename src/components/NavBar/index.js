@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-component';
 import {Menu, Icon} from 'antd';
 import subMenus from './menuData';
 
@@ -7,51 +8,22 @@ const {SubMenu, Item} = Menu;
 
 
 export default class NavBar extends React.Component {
-    static defaultProps = {
-        currentSelectedKey: 'room-list',
-        onClick: false,
-    }
-
     static propTypes = {
-        currentSelectedKey: PropTypes.string,
-        onClick: PropTypes.oneOfType([
-            PropTypes.func,
-            PropTypes.bool,
-        ]),
-    }
-
-    state = {
-        currentSelectedKey: this.props.currentSelectedKey,
-    }
-
-    componentWillReceiveProps({currentSelectedKey}) {
-        this.changeCurrent(currentSelectedKey);
-    }
-
-
-    handleClick = ({key}) => {
-        this.changeCurrent(key);
-        this.props.onClick(key);
-    }
-
-    changeCurrent = key => {
-        if (key !== this.state.currentSelectedKey) {
-            this.setState({currentSelectedKey: key});
-        }
+        currentGroup: PropTypes.string.isRequired,
+        currentKey: PropTypes.string.isRequired,
     }
 
     render() {
-        const {currentSelectedKey} = this.state;
+        const {currentGroup, currentKey} = this.props;
 
         return (
             <Menu
                 mode="inline"
-                defaultOpenKeys={['room']}
-                defaultSelectedKeys={[currentSelectedKey]}
-                selectedKeys={[currentSelectedKey]}
+                defaultOpenKeys={[currentGroup]}
+                defaultSelectedKeys={[currentKey]}
+                selectedKeys={[currentKey]}
                 theme="dark"
                 inlineIndent={26}
-                onClick={this.handleClick}
                 defaultActiveFirst
             >
                 {
@@ -59,7 +31,7 @@ export default class NavBar extends React.Component {
                         <SubMenu key={key} title={(<span><Icon type={icon} /> <span>{title}</span></span>)}>
                             {
                                 children.length > 0 && children.map(({key: keyChild, title: titleChild}) => (
-                                    <Item key={keyChild}>{titleChild}</Item>
+                                    <Item key={keyChild}><Link href={`/${keyChild}`}>{titleChild}</Link></Item>
                                 ))
                             }
                         </SubMenu>

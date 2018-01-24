@@ -17,7 +17,7 @@ const data: Idata[] = [
         icon: 'shop',
         children: [
             // 'key' should be unique under their own children array
-            {key: 'room-list', title: '房源列表'},
+            {key: 'roomlist', title: '房源列表'},
         ],
     },
     {
@@ -25,7 +25,7 @@ const data: Idata[] = [
         title: '合同',
         icon: 'profile',
         children: [
-            {key: 'contract-list', title: '合同列表'},
+            {key: 'contractlist', title: '合同列表'},
         ],
     },
     {
@@ -33,7 +33,7 @@ const data: Idata[] = [
         title: '合同模版',
         icon: 'form',
         children: [
-            {key: 'template-list', title: '模版列表'},
+            {key: 'templatelist', title: '模版列表'},
         ],
     },
     {
@@ -41,7 +41,7 @@ const data: Idata[] = [
         title: '收益',
         icon: 'bank',
         children: [
-            {key: 'profit-overview', title: '收益概览'},
+            {key: 'profitoverview', title: '收益概览'},
         ],
     },
     {
@@ -49,7 +49,7 @@ const data: Idata[] = [
         title: '生活费用',
         icon: 'pay-circle-o',
         children: [
-            {key: 'utilities-overview', title: '费用概览'},
+            {key: 'utilitiesoverview', title: '费用概览'},
         ],
     },
 ];

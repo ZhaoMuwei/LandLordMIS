@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Locations, Location, NotFound} from 'react-router-component';
 import registerServiceWorker from './registerServiceWorker';
-import Login from './components/Login';
+import LoginPage from './pages/LoginPage';
+import RoomListPage from './pages/RoomListPage';
 import NoWhere from './components/404';
 
 import './index.css';
@@ -10,8 +11,12 @@ import './index.css';
 class App extends React.Component {
     render() {
         return (
-            <Locations component={null}>
-                <Location path="/" handler={Login} />
+            <Locations
+                onBeforeNavigation={() => console.log('aaaaaaa')}
+                component={null}
+            >
+                <Location path="/" handler={LoginPage} />
+                <Location path="/roomlist" handler={RoomListPage} />
                 <NotFound handler={NoWhere} />
             </Locations>
         );
